@@ -5,7 +5,7 @@ from configuration import ApiConfig
 from rest_api.endpoints import neutralisation_router
 
 app = FastAPI(
-    title="Gender Neutralisation",
+    title="🏳️‍⚧ Gender Neutralisation 🏳️‍⚧",
     description="Simple REST-API to replace gendered language in text "
         "with gender neutral equivalents. This uses a general "
         "purpose large language model, meaning there is a "
