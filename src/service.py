@@ -12,7 +12,7 @@ class NeutralisationMethod(str, Enum):
 
 def neutralise_gender(text: str, method: NeutralisationMethod):
     if method == NeutralisationMethod.OPEN_AI:
-        _neutralise_gender_open_ai(text)
+        return _neutralise_gender_open_ai(text)
     else:
         logger.error("Only Open AI driven neutralisation is currently supported")
         return text
@@ -36,5 +36,5 @@ def _neutralise_gender_open_ai(text: str) -> str:
         frequency_penalty=0,
         presence_penalty=0
     )
-    trimmed_output: str = raw_response.replace(model_input, "")
+    trimmed_output: str = raw_response.choices[0].text
     return trimmed_output

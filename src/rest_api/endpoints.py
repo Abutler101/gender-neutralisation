@@ -5,7 +5,8 @@ from loguru import logger
 import rest_api.api_models as api
 from service import neutralise_gender, NeutralisationMethod
 
-neutralisation_router = APIRouter()
+neutralisation_router = APIRouter(tags=["gender-neutralisation"])
+
 
 @neutralisation_router.post(
     "/",
