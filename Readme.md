@@ -11,4 +11,4 @@ value to set is `OPEN_AI_KEY` as this is used to gain access to the GPT-3 api.
 - Launch API adding `src` to path : `PYTHONPATH="${PYTHONPATH}:src/" python3 src/main.py`
 
 ## Usage - Docker
-- 
+**Coming Soon**

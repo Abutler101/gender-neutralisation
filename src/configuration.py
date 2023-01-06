@@ -1,6 +1,7 @@
 """
 Models to load configuration from Env Vars
 """
+from pathlib import Path
 
 from pydantic import BaseSettings
 from enum import Enum
@@ -20,6 +21,7 @@ class OpenAiConfig(BaseSettings):
 
     class Config:
         env_prefix = "open_ai_"
+        env_file = Path(__file__).parents[1].joinpath(".env")
 
 
 class ApiConfig(BaseSettings):
@@ -28,3 +30,4 @@ class ApiConfig(BaseSettings):
 
     class Config:
         env_prefix = "api_"
+        env_file = Path(__file__).parents[1].joinpath(".env")
