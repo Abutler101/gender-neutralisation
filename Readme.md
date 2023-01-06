@@ -29,7 +29,7 @@ value to set is `OPEN_AI_KEY` as this is used to gain access to the GPT-3 api.
 ## Future Plans
 - Finish docker deployment - Env Variables
 - Write tests
-- Caching with Redis using has of input text
+- Caching with Redis using hash of input text
 - Rate limiting
 - Provide alternative non GPT-3 methods to achieve the same objective cheaper and faster
 - Wrap the API in some form SPA
