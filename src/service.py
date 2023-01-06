@@ -10,6 +10,10 @@ class NeutralisationMethod(str, Enum):
     OPEN_AI = "open_ai"
 
 
+# token cap for 3rd party tools
+MAX_LEN = 512
+
+
 def neutralise_gender(text: str, method: NeutralisationMethod):
     if method == NeutralisationMethod.OPEN_AI:
         return _neutralise_gender_open_ai(text)
@@ -31,7 +35,7 @@ def _neutralise_gender_open_ai(text: str) -> str:
         model="text-davinci-003",
         prompt=model_input,
         temperature=0.7,
-        max_tokens=256,
+        max_tokens=MAX_LEN,
         top_p=1,
         frequency_penalty=0,
         presence_penalty=0
