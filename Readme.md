@@ -30,6 +30,14 @@ about leaking your API key if you push the docker image somewhere)
 - Run: `make deploy`
 - To bring down the API, run: `make down`
 
+## Getting Your OpenAI API key
+Curently this API only supports gender neutralisation making use of OpenAI's GPT API. As such,
+you'll need to follow these steps to get the API key mentioned in the usage sections.
+- Create an Account & Login to [OpenAI](https://openai.com/api/)
+- Goto `account/api-keys`
+- Select Create new Secret Key
+- Copy the resulting Key
+
 ## Future Plans
 - Wrap the API in some form SPA
 - Rate limiting
