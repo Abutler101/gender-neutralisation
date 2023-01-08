@@ -24,10 +24,13 @@ value to set is `OPEN_AI_KEY` as this is used to gain access to the GPT-3 api.
 - Launch API adding `src` to path : `PYTHONPATH="${PYTHONPATH}:src/" python3 src/main.py`
 
 ## Usage - Docker
-**Coming Soon**
+- Set environment variables in .env file (these are passed in by docker-compose so no need to worry
+about leaking your API key if you push the docker image somewhere)
+- Run: `make build`
+- Run: `make deploy`
+- To bring down the API, run: `make down`
 
 ## Future Plans
-- Finish docker deployment - Env Variables
 - Write tests
 - Caching with Redis using hash of input text
 - Rate limiting
@@ -35,4 +38,4 @@ value to set is `OPEN_AI_KEY` as this is used to gain access to the GPT-3 api.
 - Wrap the API in some form SPA
 
 ## Contribution
-Help is always appreciated, feel free to open issues, or better yet Branches and PR's
+Help is always appreciated, feel free to open issues, or better yet Branches and PR's ❤
