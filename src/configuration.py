@@ -31,3 +31,17 @@ class ApiConfig(BaseSettings):
     class Config:
         env_prefix = "api_"
         env_file = Path(__file__).parents[1].joinpath(".env")
+
+
+class RedisConfig(BaseSettings):
+    """
+    Configuration for Redis Caching, timeout is in seconds
+    """
+    host: str = "0.0.0.0"
+    port: int = 6379
+    timeout: int = 7200  # 2 hours
+    password: str
+
+    class Config:
+        env_prefix = "redis_"
+        env_file = Path(__file__).parents[1].joinpath(".env")

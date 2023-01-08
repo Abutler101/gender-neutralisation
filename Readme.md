@@ -31,11 +31,9 @@ about leaking your API key if you push the docker image somewhere)
 - To bring down the API, run: `make down`
 
 ## Future Plans
-- Write tests
-- Caching with Redis using hash of input text
+- Wrap the API in some form SPA
 - Rate limiting
 - Provide alternative non GPT-3 methods to achieve the same objective cheaper and faster
-- Wrap the API in some form SPA
 
 ## Contribution
 Help is always appreciated, feel free to open issues, or better yet Branches and PR's ❤
