@@ -14,6 +14,8 @@ services:
     depends_on:
       neutralisation-redis:
         condition: service_healthy
+    networks:
+      - neutralisation
 
   neutralisation-redis:
     image: "redis:alpine"
@@ -26,7 +28,12 @@ services:
       test: "redis-cli PING"
       interval: 2s
       retries: 10
+    networks:
+      - neutralisation
 
 volumes:
   redis_data:
     driver: local
+
+networks:
+  neutralisation:

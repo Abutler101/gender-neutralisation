@@ -16,4 +16,4 @@ app.include_router(neutralisation_router)
 
 if __name__ == '__main__':
     api_config = ApiConfig()
-    uvicorn.run("src.main:app", host=api_config.host, port=api_config.port, reload=True)
+    uvicorn.run("src.neutralisation-api.main:app", host=api_config.host, port=api_config.port, reload=True)
