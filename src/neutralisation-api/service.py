@@ -40,6 +40,6 @@ def _neutralise_gender_open_ai(text: str) -> str:
         frequency_penalty=0,
         presence_penalty=0
     )
-    logger.info(f"Call to OpenAI took {raw_response.response_ms}")
+    logger.info(f"Call to OpenAI took {raw_response.response_ms}ms")
     trimmed_output: str = raw_response.choices[0].text
     return trimmed_output

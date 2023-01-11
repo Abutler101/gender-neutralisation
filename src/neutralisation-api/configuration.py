@@ -21,7 +21,7 @@ class OpenAiConfig(BaseSettings):
 
     class Config:
         env_prefix = "open_ai_"
-        env_file = Path(__file__).parents[1].joinpath(".env")
+        env_file = Path(__file__).parents[2].joinpath(".env")
 
 
 class ApiConfig(BaseSettings):
@@ -30,7 +30,7 @@ class ApiConfig(BaseSettings):
 
     class Config:
         env_prefix = "api_"
-        env_file = Path(__file__).parents[1].joinpath(".env")
+        env_file = Path(__file__).parents[2].joinpath(".env")
 
 
 class RedisConfig(BaseSettings):
@@ -44,4 +44,4 @@ class RedisConfig(BaseSettings):
 
     class Config:
         env_prefix = "redis_"
-        env_file = Path(__file__).parents[1].joinpath(".env")
+        env_file = Path(__file__).parents[2].joinpath(".env")

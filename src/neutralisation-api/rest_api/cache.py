@@ -18,7 +18,6 @@ class ResultsCache:
 
     def __init__(self):
         self.config = RedisConfig()
-
         self.client = Redis(
             host=self.config.host,
             port=self.config.port,

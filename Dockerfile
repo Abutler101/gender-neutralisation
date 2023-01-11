@@ -16,9 +16,9 @@ COPY ./setup/requirements.txt /setup/requirements.txt
 RUN pip install -r /setup/requirements.txt
 
 # copy the source code to the working directory
-COPY ./src /app/src/
+COPY ./src/neutralisation-api /app/src/neutralisation-api
 # set Python path
-ENV PYTHONPATH="$PYTHONPATH:/app/src"
+ENV PYTHONPATH="$PYTHONPATH:/app/src/neutralisation-api"
 
 ENTRYPOINT ["python"]
-CMD ["-u", "/app/src/main.py" ]
+CMD ["-u", "/app/src/neutralisation-api/main.py" ]
