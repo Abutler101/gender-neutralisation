@@ -1,9 +1,11 @@
 SHELL := bash
 
-IMAGE_NAME := alexis-turintech/gender-neutralisation
+API_IMAGE_NAME := alexis-turintech/gender-neutralisation-api
+APP_IMAGE_NAME := alexis-turintech/gender-neutralisation-app
 
 build: ## Build the container
-	docker image build -t $(IMAGE_NAME) .
+	docker image build -t $(API_IMAGE_NAME) -f api.Dockerfile .
+	docker image build -t $(APP_IMAGE_NAME) -f app.Dockerfile .
 
 deploy: build ## Deploy all services
 	docker-compose up -d
