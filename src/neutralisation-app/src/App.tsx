@@ -3,8 +3,8 @@ import './App.css';
 import ApiInteraction from "./components/ApiInteraction";
 
 function App() {
-    const host = "192.168.58.244" // process.env.REACT_APP_API_HOST || '0.0.0.0';
-    const port = 8095 // process.env.REACT_APP_API_PORT || '8095';
+    const host = process.env.API_PUBLIC_HOST;
+    const port = process.env.API_PORT || '8095';
     const endpoint = "";
     const apiPath = `http://${host}:${port}/${endpoint}`;
 
