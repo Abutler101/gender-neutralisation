@@ -1,5 +1,3 @@
-from hashlib import md5
-
 from fastapi import APIRouter
 from starlette.status import HTTP_201_CREATED
 from loguru import logger
@@ -20,9 +18,10 @@ neutralisation_router = APIRouter(tags=["gender-neutralisation"])
 )
 def neutralise_text_gender(
     input_text: api.TextRequestWrapper,
+    neutralisation_algo: NeutralisationMethod = NeutralisationMethod.OPEN_AI
 ) -> api.TextResponseWrapper:
     results_cache = ResultsCache()
-    hash_key = md5(input_text.text.encode('utf-8')).hexdigest()
+    hash_key = results_cache.get_cache_key(neutralisation_algo, input_text.text)
     cached_response = results_cache.read(hash_key)
     if cached_response is not None:
         logger.info("Response found in Cache")
@@ -31,8 +30,8 @@ def neutralise_text_gender(
     truncated = False
     if len(input_text.text.split()) > MAX_LEN:
         truncated = True
-    cleaned=input_text.text.strip()
-    neutralised_text = neutralise_gender(cleaned, NeutralisationMethod.OPEN_AI)
+    cleaned = input_text.text.strip()
+    neutralised_text = neutralise_gender(cleaned, neutralisation_algo)
     response = api.TextResponseWrapper(
         input_word_count=len(input_text.text.split()),
         input_char_count=len(input_text.text),

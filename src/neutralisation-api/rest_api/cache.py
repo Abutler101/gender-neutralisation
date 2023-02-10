@@ -2,13 +2,14 @@
 Cacheing of API responses using Redis, keys are the hexdigest md5 hash
 of the utf-8 encoded string value of api.TextRequestWrapper.text
 """
-from pathlib import Path
+from hashlib import md5
 from typing import Optional
 
 from redis import Redis
 
 import rest_api.api_models as api
 from configuration import RedisConfig
+from service import NeutralisationMethod
 
 
 class ResultsCache:
@@ -33,3 +34,12 @@ class ResultsCache:
             return None
         response = api.TextResponseWrapper.parse_raw(result)
         return response
+
+    @staticmethod
+    def get_cache_key(method: NeutralisationMethod, text: str):
+        """
+        Calculates the cache key for a given text and neutralisation
+        method. Hashes the combined method and input text
+        """
+        key = md5(f"{method}-{text}".encode('utf-8')).hexdigest()
+        return key
