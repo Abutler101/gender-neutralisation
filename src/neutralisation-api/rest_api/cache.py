@@ -9,7 +9,7 @@ from redis import Redis
 
 import rest_api.api_models as api
 from configuration import RedisConfig
-from service import NeutralisationMethod
+from service.entrypoint import NeutralisationMethod
 
 
 class ResultsCache:

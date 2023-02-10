@@ -4,7 +4,8 @@ from loguru import logger
 
 import rest_api.api_models as api
 from rest_api.cache import ResultsCache
-from service import neutralise_gender, NeutralisationMethod, MAX_LEN
+from service.models import NeutralisationMethod, MAX_LEN
+from service.entrypoint import neutralise_gender
 
 neutralisation_router = APIRouter(tags=["gender-neutralisation"])
 

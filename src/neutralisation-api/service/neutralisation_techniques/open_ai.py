@@ -1,28 +1,14 @@
-from enum import Enum
-
 import openai
 from loguru import logger
 
 from configuration import OpenAiConfig
+from service.models import MAX_LEN
 
 
-class NeutralisationMethod(str, Enum):
-    OPEN_AI = "open_ai"
-
-
-# token cap for 3rd party tools
-MAX_LEN = 512
-
-
-def neutralise_gender(text: str, method: NeutralisationMethod):
-    if method == NeutralisationMethod.OPEN_AI:
-        return _neutralise_gender_open_ai(text)
-    else:
-        logger.error("Only Open AI driven neutralisation is currently supported")
-        return text
-
-
-def _neutralise_gender_open_ai(text: str) -> str:
+def neutralise_gender_open_ai(text: str) -> str:
+    """
+    Use OpenAI's LLM api to perform the neutralisation
+    """
     open_ai_config = OpenAiConfig()
     openai.api_key = open_ai_config.key
 

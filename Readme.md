@@ -1,9 +1,9 @@
 # 🏳️‍⚧ Gender Neutralisation 🏳️‍⚧
 
 Simple FastAPI project to neutralise gendered langauge (pronouns etc.) within a 
-provided text. Making use of OpenAI GPT-3.  
+provided text. Making use of NLP techniques.  
 (If the Trans Pride Flags in the title are showing as 2 distinct symbols blame 
-Microsoft :( for Window's weird emoji support)
+Microsoft :( for Window's weird emoji support
 
 ## Examples
 ### Gendered:
@@ -45,3 +45,11 @@ you'll need to follow these steps to get the API key mentioned in the usage sect
 
 ## Contribution
 Help is always appreciated, feel free to open issues, or better yet Branches and PR's ❤
+
+### Adding Neutralisation Methods
+- Place all logic specific to the new approach to neutralisation in a file in 
+`src/neutralisation-api/service/neutralisation_techniques`, making sure to have
+the top level method have the signature: `neutralise_gender_{Something Unique}(text: str) -> str`
+- Add an import of this top level method in `src/neutralisation-api/service/neutralisation_techniques/__init__.py`
+- Add an entry to the `NeutralisationMethod` enum in `src/neutralisation-api/service/neutralisation_techniques/models.py`
+- Add a case in the switch statement in `src/neutralisation-api/service/entrypoint.py`
